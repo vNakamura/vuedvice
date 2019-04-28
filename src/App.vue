@@ -1,24 +1,43 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Advice v-bind:msg="message"/>
+    <button @click="getAdvice">Get Advice</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Advice from "./components/Advice.vue";
+
+const API_URL = "https://api.adviceslip.com/advice";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    HelloWorld
+    Advice
+  },
+  data: function() {
+    return {
+      message: "Click the button bellow to get an advice"
+    };
+  },
+  methods: {
+    getAdvice: function() {
+      const vm = this;
+      fetch(API_URL)
+        .then(response => response.json())
+        .then(({ slip }) => {
+          vm.message = slip.advice;
+        })
+        .catch(error => (vm.message = `Error fetching API: ${error}`));
+    }
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
