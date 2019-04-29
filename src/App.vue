@@ -1,8 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
+    <p class="emoji" v-if="fetching">🤔</p>
+    <p class="emoji" v-else>🧐</p>
     <Advice v-bind:msg="message"/>
-    <button @click="getAdvice">Get Advice</button>
+    <button :disabled="fetching" @click="getAdvice">Get Advice</button>
   </div>
 </template>
 
@@ -18,18 +19,22 @@ export default {
   },
   data: function() {
     return {
-      message: "Click the button bellow to get an advice"
+      message: "Click the button bellow to get an advice",
+      fetching: false
     };
   },
   methods: {
     getAdvice: function() {
       const vm = this;
+      vm.fetching = true;
+      vm.message = "Thinking...";
       fetch(API_URL)
         .then(response => response.json())
         .then(({ slip }) => {
           vm.message = slip.advice;
         })
-        .catch(error => (vm.message = `Error fetching API: ${error}`));
+        .catch(error => (vm.message = `Error fetching API: ${error}`))
+        .finally(() => (vm.fetching = false));
     }
   }
 };
@@ -43,5 +48,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.emoji {
+  font-size: 128px;
+  margin: 0;
 }
 </style>
