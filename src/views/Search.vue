@@ -70,8 +70,9 @@ export default {
   border-radius: 0.4em;
   font-weight: 200;
   padding: 0.2em 1em;
-  margin: 40px;
+  margin: 40px 0;
   width: 50%;
+  min-width: 240px;
 }
 .input::placeholder {
   color: currentColor;
