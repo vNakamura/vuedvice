@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="advice">
     <h1>{{ msg }}</h1>
   </div>
 </template>
@@ -13,20 +13,17 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+h1 {
+  font-weight: 200;
+  text-shadow: 0 0 16px white;
+  text-align: center;
+  max-width: 65ch;
+  margin: 60px auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.advice:not(:last-of-type) h1::after {
+  display: block;
+  content: "~~=·=~~";
+  margin: 60px 0;
 }
 </style>

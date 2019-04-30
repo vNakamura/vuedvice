@@ -40,9 +40,31 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.random {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .emoji {
   font-size: 128px;
   margin: 0;
+}
+button {
+  font-size: 1.4em;
+  background: none;
+  border: solid 1px white;
+  color: white;
+  border-radius: 1em;
+  font-weight: 200;
+  padding: 0.2em 1em;
+  cursor: pointer;
+}
+button:hover {
+  background: white;
+  color: #f2709c;
+  box-shadow: 0 0 16px white;
 }
 </style>

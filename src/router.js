@@ -8,6 +8,10 @@ export default new Router({
   routes: [
     {
       path: "/",
+      redirect: "/random"
+    },
+    {
+      path: "/random",
       name: "random",
       component: Random
     },

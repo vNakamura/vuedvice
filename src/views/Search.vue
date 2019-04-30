@@ -1,7 +1,7 @@
 <template>
   <div class="search">
-    <input v-model="query" placeholder="Type something">
-    <p v-if="message">{{message}}</p>
+    <input class="input" v-model="query" placeholder="Type something">
+    <p v-if="message" class="message">{{message}}</p>
     <Advice v-for="result in results" :msg="result.advice" :key="result.slip_id"/>
   </div>
 </template>
@@ -61,3 +61,23 @@ export default {
 };
 </script>
 
+<style scoped>
+.input {
+  font-size: 1.4em;
+  background: white;
+  border: solid 1px #4075d8;
+  color: #4075d8;
+  border-radius: 0.4em;
+  font-weight: 200;
+  padding: 0.2em 1em;
+  margin: 40px;
+  width: 50%;
+}
+.input::placeholder {
+  color: currentColor;
+  opacity: 0.5;
+}
+.message {
+  font-size: 1.2em;
+}
+</style>
