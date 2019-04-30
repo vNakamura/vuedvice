@@ -10,11 +10,10 @@
 
 <script>
 import Advice from "@/components/Advice.vue";
-
-const API_URL = "https://api.adviceslip.com/advice";
+import { API_URL } from "@/constants/API";
 
 export default {
-  name: "ranndom",
+  name: "random",
   components: {
     Advice
   },
