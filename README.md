@@ -1,5 +1,11 @@
 # vuedvice
 
+![Screenshot](screenshot.png)
+
+A simple app experiment to fetch advices from [adviceslip.com](https://api.adviceslip.com/)
+
+Check the demo [here](https://vnakamura.github.io/vuedvice/).
+
 ## Project setup
 
 ```
