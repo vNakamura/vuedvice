@@ -24,10 +24,10 @@ npm run serve
 npm run build
 ```
 
-### Run your tests
+### Push new version to GitHub Pages
 
 ```
-npm run test
+npm run deploy
 ```
 
 ### Lints and fixes files
