@@ -67,6 +67,6 @@ body {
 }
 #nav a.router-link-active {
   background: white;
-  color: #4075d8;
+  color: #62305c;
 }
 </style>
