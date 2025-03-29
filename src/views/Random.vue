@@ -28,7 +28,7 @@ export default {
       const vm = this;
       vm.fetching = true;
       vm.message = "Thinking...";
-      fetch(API_URL)
+      fetch(`${API_URL}?timestamp=${new Date().getTime()}`)
         .then(response => response.json())
         .then(({ slip }) => {
           vm.message = slip.advice;
